@@ -1,0 +1,15 @@
+const Discord = require("discord.js")
+const client = new Discord.Client();
+client.on('ready', () => {
+console.log(`Logged in as ${client.user.tag}!`);
+let statuses = [
+`TVG - Trivia Vi?t Nam Group`,
+"Trivia Games",
+`Visual Studio Code`
+]
+setInterval(function() {
+let status = statuses[Math.floor(Math.random() * statuses.length)];
+client.user.setActivity(status, {type: "PLAYING"});
+}, 5000)
+});
+client.login(process.env.token);
